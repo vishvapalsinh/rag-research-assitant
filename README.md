@@ -12,11 +12,9 @@ research-assistant/
 │
 ├── main.py                        # Main script to run the pipeline
 ├── .env                           # Environment variables (not pushed to Git)
-├── requirements.txt               # Python dependencies
-├── research_assistant.ipynb       # Jupyter notebook version of the pipeline
+pipeline
 │
-├── config/
-│   └── config.py                  # Stores constants like API keys, paths, model names
+├── config.py       # Stores constants like API keys, paths, model names
 │
 ├── embeddings/
 │   ├── __init__.py
@@ -30,9 +28,9 @@ research-assistant/
 │   ├── __init__.py
 │   └── store.py                   # Create/load Chroma vectorstore
 │
-└── qa_chain/
+└── qa/
     ├── __init__.py
-    └── chain.py                   # Creates a RetrievalQA chain using the retriever and LLM
+    └── qa.py                   # Creates a RetrievalQA chain using the retriever and LLM
 ```
 
 ---
@@ -62,11 +60,13 @@ cd research-assistant
 Create a `.env` file in the root directory with the following variables:
 
 ```
-API_BASE=https://your-llm-api-base-url
-API_KEY=your_api_key
-MODEL_NAME=your_embedding_model_name
-CHROMA_DB_PATH=./chroma_db
-DOCS_PATH=./documents
+LLM_API_KEY="your_api_key"
+API_BASE="https://your-llm-api-base-url"
+EMBEDDING_MODEL_NAME="your_embedding_model_name"
+CHAT_MODEL_NAME="your_chat_model_name"
+
+CHROMA_DB_PATH="path_for_chroma_db"
+PDF_DIR="path_for_pdf_files"
 ```
 
 > ✅ Make sure `.env` is listed in `.gitignore` so your keys are not exposed.
@@ -125,13 +125,13 @@ print(response)
 This project uses:
 - [LangChain](https://www.langchain.com/)
 - [Chroma](https://www.trychroma.com/)
-- OpenAI-compatible LLM endpoints
+- Remote embedding service hosted by University of Passau
 
 ---
 
 ## 📌 To Do
 
-- [ ] Add support for PDFs (currently markdown/text support)
+- [ ] Add support for other file formats as well (Currently for PDFs only)
 - [ ] Add semantic accuracy evaluation
 - [ ] Streamlit web interface
 
@@ -139,4 +139,7 @@ This project uses:
 
 ## 📄 License
 
-MIT License
+## 📄 License
+
+This project is licensed under the MIT License — see the LICENSE file for details.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
