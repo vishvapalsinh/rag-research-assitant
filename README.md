@@ -87,16 +87,13 @@ pip install -r requirements.txt
 python main.py
 ```
 
-### 🟡 Option 2: Explore via Jupyter Notebook
-
-Open `research_assistant.ipynb` in Jupyter or VS Code and run the cells step-by-step.
 
 ---
 
 ## 🔎 Example Query
 
 ```python
-query = "What is the function of vitamin B12 in the human body?"
+query = "How the dataset for pantent analysis has been created?"
 response = qa_chain.run(query)
 print(response)
 ```
@@ -136,8 +133,6 @@ This project uses:
 - [ ] Streamlit web interface
 
 ---
-
-## 📄 License
 
 ## 📄 License
 
